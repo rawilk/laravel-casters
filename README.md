@@ -4,7 +4,21 @@
 ![Tests](https://github.com/rawilk/laravel-casters/workflows/Tests/badge.svg?style=flat-square)
 [![Total Downloads](https://img.shields.io/packagist/dt/rawilk/laravel-casters.svg?style=flat-square)](https://packagist.org/packages/rawilk/laravel-casters)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+`laravel-casters` is a collection of custom class casts for Laravel Eloquent Models. This package allows you to quickly
+and easily add casts for encrypting attributes and hashing passwords on your user models.
+
+```php
+protected $casts = [
+    // Hashes the value when assigning to `$model->password`.
+    'password' => Password::class,
+
+    // Encrypts on write, decrypts on read.
+    'classified' => Encrypted::class,
+
+    // Encrypts on write, decrypts and typecasts to integer on read.
+    'secret_number' => Encrypted::class . ':integer',
+];
+```
 
 ## Installation
 
@@ -14,31 +28,9 @@ You can install the package via composer:
 composer require rawilk/laravel-casters
 ```
 
-You can publish and run the migrations with:
+## Documentation
 
-```bash
-php artisan vendor:publish --provider="Rawilk\LaravelCasters\LaravelCastersServiceProvider" --tag="migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-```bash
-php artisan vendor:publish --provider="Rawilk\LaravelCasters\LaravelCastersServiceProvider" --tag="config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-## Usage
-
-``` php
-$laravel-casters = new Rawilk\LaravelCasters;
-echo $laravel-casters->echoPhrase('Hello, Rawilk!');
-```
+For documentation, please refer to: https://randallwilk.dev/docs/laravel-casters
 
 ## Testing
 
