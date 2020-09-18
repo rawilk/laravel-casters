@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rawilk\Skeleton\Database\Factories;
+namespace Rawilk\LaravelCasters\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

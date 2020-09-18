@@ -1,16 +1,19 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "rawilk/laravel-casters",
+    "description": "A collection of custom casts for Laravel.",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "rawilk",
+        "laravel-casters",
+        "custom casts",
+        "password cast",
+        "encryption cast"
     ],
-    "homepage": "https://github.com/rawilk/:package_name",
+    "homepage": "https://github.com/rawilk/laravel-casters",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Randall Wilk",
+            "email": "randall@randallwilk.dev",
             "homepage": "https://randallwilk.dev",
             "role": "Developer"
         }
@@ -28,13 +31,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Rawilk\\Skeleton\\": "src",
-            "Rawilk\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Rawilk\\LaravelCasters\\": "src",
+            "Rawilk\\LaravelCasters\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rawilk\\Skeleton\\Tests\\": "tests"
+            "Rawilk\\LaravelCasters\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +52,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rawilk\\Skeleton\\SkeletonServiceProvider"
+                "Rawilk\\LaravelCasters\\LaravelCastersServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Rawilk\\Skeleton\\Facades\\SkeletonFacade"
+                "LaravelCasters": "Rawilk\\LaravelCasters\\Facades\\LaravelCastersFacade"
             }
         }
     },

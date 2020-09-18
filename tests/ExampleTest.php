@@ -1,6 +1,6 @@
 <?php
 
-namespace Rawilk\Skeleton\Tests;
+namespace Rawilk\LaravelCasters\Tests;
 
 class ExampleTest extends TestCase
 {

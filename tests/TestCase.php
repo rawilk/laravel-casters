@@ -1,10 +1,10 @@
 <?php
 
-namespace Rawilk\Skeleton\Tests;
+namespace Rawilk\LaravelCasters\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Rawilk\Skeleton\SkeletonServiceProvider;
+use Rawilk\LaravelCasters\LaravelCastersServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,20 +13,20 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Rawilk\\Skeleton\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn (string $modelName) => 'Rawilk\\LaravelCasters\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
     protected function getPackageProviders($app): array
     {
         return [
-            SkeletonServiceProvider::class,
+            LaravelCastersServiceProvider::class,
         ];
     }
 
     public function getEnvironmentSetUp($app)
     {
-        // include_once __DIR__ . '/../database/migrations/create_skeleton_table.php.stub';
+        // include_once __DIR__ . '/../database/migrations/create_laravel_casters_table.php.stub';
         // (new \CreatePackageTable())->up();
     }
 }

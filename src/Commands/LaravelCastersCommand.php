@@ -1,12 +1,12 @@
 <?php
 
-namespace Rawilk\Skeleton\Commands;
+namespace Rawilk\LaravelCasters\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelCastersCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-casters';
 
     public $description = 'My command';
 
