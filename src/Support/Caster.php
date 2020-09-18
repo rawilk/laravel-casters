@@ -41,7 +41,7 @@ class Caster
         }
 
         // Don't specify key, we override getCastType to provide the correct type.
-        return $this->castAttribute(null, $value);
+        return $this->castAttribute('', $value);
     }
 
     protected function getCastType(): string
