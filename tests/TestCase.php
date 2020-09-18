@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Rawilk\LaravelCasters\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Rawilk\LaravelCasters\LaravelCastersServiceProvider;
 
-class TestCase extends Orchestra
+abstract class TestCase extends Orchestra
 {
     protected function setUp(): void
     {
