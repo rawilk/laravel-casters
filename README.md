@@ -55,6 +55,12 @@ Please review [my security policy](.github/SECURITY.md) on how to report securit
 - [Randall Wilk](https://github.com/rawilk)
 - [All Contributors](../../contributors)
 
+## Alternatives
+
+Some alternatives to this package include:
+
+- [crudly/encrypted](https://github.com/Crudly/Encrypted)
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
