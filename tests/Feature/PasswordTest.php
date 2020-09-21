@@ -40,4 +40,14 @@ class PasswordTest extends TestCase
 
         self::assertNull($model->password);
     }
+
+    /** @test */
+    public function does_not_rehash_the_password(): void
+    {
+        $password = Hash::make('secret');
+        $model = new Model(compact('password'));
+
+        self::assertTrue(Hash::check('secret', $password));
+        self::assertTrue(Hash::check('secret', $model->password));
+    }
 }

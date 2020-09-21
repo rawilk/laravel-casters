@@ -11,6 +11,10 @@ class Password implements CastsInboundAttributes
 {
     public function set($model, string $key, $value, array $attributes)
     {
+        if (! Hash::needsRehash($value)) {
+            return $value;
+        }
+
         return Hash::make($value);
     }
 }
