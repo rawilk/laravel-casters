@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 use Rawilk\LaravelCasters\Support\Caster;
 use Rawilk\LaravelCasters\Tests\TestCase;
 
-class CasterTest extends TestCase
+final class CasterTest extends TestCase
 {
     /** @test */
     public function casts_to_string(): void

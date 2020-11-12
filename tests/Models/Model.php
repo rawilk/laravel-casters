@@ -7,6 +7,7 @@ namespace Rawilk\LaravelCasters\Tests\Models;
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Rawilk\LaravelCasters\Casts\Encrypted;
 use Rawilk\LaravelCasters\Casts\Password;
+use Rawilk\LaravelCasters\Support\Name;
 
 class Model extends BaseModel
 {
@@ -33,5 +34,9 @@ class Model extends BaseModel
         'datetime' => Encrypted::class . ':datetime',
 
         'password' => Password::class,
+
+        'name' => Name::class,
+
+        'custom_name' => Name::class . ':given_name,family_name',
     ];
 }
