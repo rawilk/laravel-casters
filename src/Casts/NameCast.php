@@ -19,7 +19,7 @@ class NameCast implements CastsAttributes
         $this->lastName = $lastName ?: 'last_name';
     }
 
-    public function get($model, string $key, $value, array $attributes)
+    public function get($model, string $key, $value, array $attributes): Name
     {
         if ($value) {
             return Name::from($value);
@@ -31,7 +31,7 @@ class NameCast implements CastsAttributes
         return Name::from("{$firstName} {$lastName}");
     }
 
-    public function set($model, string $key, $value, array $attributes)
+    public function set($model, string $key, $value, array $attributes): string
     {
         return (string) $value;
     }
