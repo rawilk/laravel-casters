@@ -60,7 +60,7 @@ final class NameTest extends TestCase
     /** @test */
     public function it_gets_the_full_name(): void
     {
-        self::assertSame('Randall Wilk',$this->firstAndLast->full);
+        self::assertSame('Randall Wilk', $this->firstAndLast->full);
         self::assertSame('Randall Wilk', (string) $this->firstAndLast);
 
         self::assertSame('Randall', $this->firstOnly->full);
