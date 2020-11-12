@@ -17,6 +17,9 @@ protected $casts = [
 
     // Encrypts on write, decrypts and typecasts to integer on read.
     'secret_number' => Encrypted::class . ':integer',
+    
+    // Provides utilities for manipulating a name
+    'name' => Name::class,
 ];
 ```
 
@@ -60,6 +63,7 @@ Please review [my security policy](.github/SECURITY.md) on how to report securit
 Some alternatives to this package include:
 
 - [crudly/encrypted](https://github.com/Crudly/Encrypted)
+- [watson/nameable](https://github.com/dwightwatson/nameable)
 
 ## License
 
