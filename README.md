@@ -3,6 +3,8 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rawilk/laravel-casters.svg?style=flat-square)](https://packagist.org/packages/rawilk/laravel-casters)
 ![Tests](https://github.com/rawilk/laravel-casters/workflows/Tests/badge.svg?style=flat-square)
 [![Total Downloads](https://img.shields.io/packagist/dt/rawilk/laravel-casters.svg?style=flat-square)](https://packagist.org/packages/rawilk/laravel-casters)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/rawilk/laravel-casters?style=flat-square)](https://packagist.org/packages/rawilk/laravel-casters)
+[![License](https://img.shields.io/github/license/rawilk/laravel-casters?style=flat-square)](https://github.com/rawilk/laravel-casters/blob/master/LICENSE.md)
 
 `laravel-casters` is a collection of custom class casts for Laravel Eloquent Models. This package allows you to quickly
 and easily add casts for encrypting attributes and hashing passwords on your user models.
