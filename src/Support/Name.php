@@ -113,7 +113,7 @@ class Name implements JsonSerializable, Jsonable, Castable
     public function __get(string $key): ?string
     {
         if ($this->wantsPossessive($key)) {
-            $key = Str::replaceLast('possessive', null, $key);
+            $key = Str::replaceLast('possessive', '', $key);
 
             return $this->possessive($this->{$key});
         }
