@@ -4,7 +4,7 @@ All notable changes to `laravel-casters` will be documented in this file
 
 ## 2.0.2 - 2022-04-06
 ### Fixed
-- Make `Rawilk\LaravelCasters\Support\Str` compatible with base `Str` class by removing `squish` method
+- Make `Rawilk\LaravelCasters\Support\Str` compatible with base `Str` class by making `squish` method signature compatible with parent signature
 
 ## 2.0.1 - 2022-02-23
 ### Updated
