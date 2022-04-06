@@ -14,10 +14,4 @@ final class StrTest extends TestCase
     {
         self::assertEquals('R', Str::firstLetter('Randall'));
     }
-
-    /** @test */
-    public function it_squishes_additional_space_from_a_string(): void
-    {
-        self::assertSame('Randall James Wilk', Str::squish('     Randall   James    Wilk '));
-    }
 }
