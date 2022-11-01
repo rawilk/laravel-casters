@@ -34,8 +34,9 @@ class EncryptedBoolCastTest extends EncryptedTestCase
     /**
      * @test
      * @dataProvider valuesToCast
-     * @param mixed $valueToEncrypt
-     * @param bool $expectedValue
+     *
+     * @param  mixed  $valueToEncrypt
+     * @param  bool  $expectedValue
      */
     public function casts_to_boolean($valueToEncrypt, bool $expectedValue): void
     {

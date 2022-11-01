@@ -34,8 +34,9 @@ class EncryptedIntegerCastTest extends EncryptedTestCase
     /**
      * @test
      * @dataProvider integersToCast
-     * @param mixed $valueToCast
-     * @param int $expectedValue
+     *
+     * @param  mixed  $valueToCast
+     * @param  int  $expectedValue
      */
     public function casts_to_integer($valueToCast, int $expectedValue): void
     {

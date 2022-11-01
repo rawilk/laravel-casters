@@ -10,6 +10,7 @@ use Rawilk\LaravelCasters\Tests\TestCase;
 final class NameTest extends TestCase
 {
     private Name $firstOnly;
+
     private Name $firstAndLast;
 
     protected function setUp(): void

@@ -11,6 +11,7 @@ use Rawilk\LaravelCasters\Support\Caster;
 class Encrypted implements CastsAttributes
 {
     protected ?string $castType;
+
     protected Caster $caster;
 
     public function __construct(string $castType = null)

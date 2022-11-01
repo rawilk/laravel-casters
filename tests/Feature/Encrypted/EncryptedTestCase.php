@@ -11,6 +11,7 @@ use Rawilk\LaravelCasters\Tests\TestCase;
 abstract class EncryptedTestCase extends TestCase
 {
     protected Model $model;
+
     protected string $encrypted;
 
     /** @var mixed */

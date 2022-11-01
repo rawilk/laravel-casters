@@ -35,8 +35,9 @@ class EncryptedFloatTest extends EncryptedTestCase
     /**
      * @test
      * @dataProvider floatValues
-     * @param mixed $valueToCast
-     * @param float $expectedValue
+     *
+     * @param  mixed  $valueToCast
+     * @param  float  $expectedValue
      */
     public function casts_as_float($valueToCast, float $expectedValue): void
     {

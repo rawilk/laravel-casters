@@ -13,6 +13,7 @@ class Caster
     use HasAttributes;
 
     protected string $castType;
+
     protected Model $model;
 
     public function __construct(string $castType)

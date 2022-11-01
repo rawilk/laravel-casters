@@ -29,6 +29,7 @@ use Rawilk\LaravelCasters\Casts\NameCast;
 class Name implements JsonSerializable, Jsonable, Castable
 {
     protected ?string $firstName;
+
     protected ?string $lastName;
 
     public static function from(?string $name): self

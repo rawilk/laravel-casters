@@ -11,6 +11,7 @@ use Rawilk\LaravelCasters\Support\Name;
 class NameCast implements CastsAttributes
 {
     protected ?string $firstName;
+
     protected ?string $lastName;
 
     public function __construct(?string $firstName = null, ?string $lastName = null)
