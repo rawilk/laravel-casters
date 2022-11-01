@@ -28,7 +28,7 @@ class User extends Model
 {
     protected $casts = [
         'name' => Name::class,
-        
+
         // Or
         // 'name' => NameCast::class,
     ];
