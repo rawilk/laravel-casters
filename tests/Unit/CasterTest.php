@@ -2,103 +2,85 @@
 
 declare(strict_types=1);
 
-namespace Rawilk\LaravelCasters\Tests\Unit;
-
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Rawilk\LaravelCasters\Support\Caster;
-use Rawilk\LaravelCasters\Tests\TestCase;
 
-final class CasterTest extends TestCase
-{
-    /** @test */
-    public function casts_to_string(): void
-    {
-        $caster = new Caster('string');
+it('casts to string', function () {
+    $caster = new Caster('string');
 
-        self::assertIsString($caster->coerce(12));
-        self::assertSame('55.1', $caster->coerce(55.1));
-    }
+    expect($caster->coerce(12))->toBeString()
+        ->and($caster->coerce(55.1))->toBe('55.1');
+});
 
-    /** @test */
-    public function casts_to_decimal(): void
-    {
-        $caster = new Caster('decimal:2');
+it('casts to decimal', function () {
+    $caster = new Caster('decimal:2');
 
-        self::assertIsString($caster->coerce(12));
-        self::assertSame('98.00', $caster->coerce(98));
-        self::assertSame('24.00', $caster->coerce(24));
-        self::assertSame('78.99', $caster->coerce(78.9898));
-    }
+    expect($caster->coerce(12))->toBeString()
+        ->and($caster->coerce(98))->toBe('98.00')
+        ->and($caster->coerce(24))->toBe('24.00')
+        ->and($caster->coerce(78.9898))->toBe('78.99');
+});
 
-    /** @test */
-    public function casts_to_datetime(): void
-    {
-        $caster = new Caster('datetime');
-        $casted = $caster->coerce('1592-03-14');
+it('casts to datetime', function () {
+    $caster = new Caster('datetime');
+    $casted = $caster->coerce('1592-03-14');
 
-        self::assertIsObject($casted);
-        self::assertInstanceOf(Carbon::class, $casted);
-        self::assertEquals('1592-03-14', $casted->format('Y-m-d'));
+    expect($casted)->toBeObject()
+        ->and($casted)->toBeInstanceOf(Carbon::class)
+        ->and($casted->format('Y-m-d'))->toBe('1592-03-14');
 
-        $now = now();
-        $nonCasted = $caster->coerce($now);
+    $now = now();
+    $nonCasted = $caster->coerce($now);
 
-        self::assertSame($now, $nonCasted);
-    }
+    expect($nonCasted)->toBe($now);
+});
 
-    /** @test */
-    public function casts_to_object(): void
-    {
-        $caster = new Caster('object');
-        $list = (object) ['secret' => 'classified'];
+it('casts to object', function () {
+    $caster = new Caster('object');
+    $list = (object) ['secret' => 'classified'];
 
-        $castedJson = $caster->coerce(json_encode($list));
+    $castedJson = $caster->coerce(json_encode($list));
 
-        self::assertIsObject($castedJson);
-        self::assertInstanceOf('stdClass', $castedJson);
-        self::assertEquals($list, $castedJson);
+    expect($castedJson)->toBeObject()
+        ->and($castedJson)->toBeInstanceOf('stdClass')
+        ->and($castedJson)->toEqual($list);
 
-        $castedObject = $caster->coerce($list);
+    $castedObject = $caster->coerce($list);
 
-        self::assertSame($list, $castedObject);
-    }
+    expect($castedObject)->toBe($list);
+});
 
-    /** @test */
-    public function casts_to_array(): void
-    {
-        $caster = new Caster('array');
-        $list = ['secret', 'classified'];
+it('casts to array', function () {
+    $caster = new Caster('array');
+    $list = ['secret', 'classified'];
 
-        $castedJson = $caster->coerce(json_encode($list));
+    $castedJson = $caster->coerce(json_encode($list));
 
-        self::assertIsArray($castedJson);
-        self::assertEquals($list, $castedJson);
+    expect($castedJson)->toBeArray()
+        ->and($castedJson)->toEqual($list);
 
-        $castedArray = $caster->coerce($list);
+    $castedArray = $caster->coerce($list);
 
-        self::assertSame($list, $castedArray);
-    }
+    expect($castedArray)->toBe($list);
+});
 
-    /** @test */
-    public function casts_to_collection(): void
-    {
-        $caster = new Caster('collection');
-        $list = ['secret', 'classified'];
-        $collection = collect(['secret', 'classified']);
+it('casts to collection', function () {
+    $caster = new Caster('collection');
+    $list = ['secret', 'classified'];
+    $collection = collect(['secret', 'classified']);
 
-        $castedJson = $caster->coerce(json_encode($list));
+    $castedJson = $caster->coerce(json_encode($list));
 
-        self::assertInstanceOf(Collection::class, $castedJson);
-        self::assertEquals($collection, $castedJson);
+    expect($castedJson)->toBeInstanceOf(Collection::class)
+        ->and($castedJson)->toEqual($collection);
 
-        $castedArray = $caster->coerce($list);
+    $castedArray = $caster->coerce($list);
 
-        self::assertInstanceOf(Collection::class, $castedArray);
-        self::assertSame($list, $castedArray->toArray());
+    expect($castedArray)->toBeInstanceOf(Collection::class)
+        ->and($castedArray->toArray())->toBe($list);
 
-        $castedCollection = $caster->coerce($collection);
+    $castedCollection = $caster->coerce($collection);
 
-        self::assertSame($collection, $castedCollection);
-    }
-}
+    expect($castedCollection)->toBe($collection);
+});

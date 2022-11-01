@@ -2,171 +2,93 @@
 
 declare(strict_types=1);
 
-namespace Rawilk\LaravelCasters\Tests\Unit;
-
 use Rawilk\LaravelCasters\Support\Name;
-use Rawilk\LaravelCasters\Tests\TestCase;
 
-final class NameTest extends TestCase
-{
-    private Name $firstOnly;
+beforeEach(function () {
+    $this->firstOnly = new Name('John');
+    $this->firstAndLast = new Name('John', 'Smith');
+});
 
-    private Name $firstAndLast;
+it('can be created with a full name', function () {
+    $name = Name::from('John Adam Smith');
 
-    protected function setUp(): void
-    {
-        parent::setUp();
+    expect($name->first)->toBe('John')
+        ->and($name->last)->toBe('Adam Smith');
+});
 
-        $this->firstOnly = new Name('Randall');
-        $this->firstAndLast = new Name('Randall', 'Wilk');
-    }
+it('can be created with just a first name', function () {
+    $name = Name::from('John');
 
-    /** @test */
-    public function it_can_be_created_with_a_full_name(): void
-    {
-        $name = Name::from('Randall James Wilk');
+    expect($name->first)->toBe('John')
+        ->and($name->last)->toBeNull();
+});
 
-        self::assertSame('Randall', $name->first);
-        self::assertSame('James Wilk', $name->last);
-    }
+it('trims additional spacing when creating from a full name', function () {
+    $name = Name::from('     John   Adam           Smith');
 
-    /** @test */
-    public function it_can_be_created_with_a_first_name(): void
-    {
-        $name = Name::from('Randall');
+    expect($name->first)->toBe('John')
+        ->and($name->last)->toBe('Adam Smith');
+});
 
-        self::assertSame('Randall', $name->first);
-        self::assertNull($name->last);
-    }
+it('gets the first and last name')
+    ->expect(fn () => $this->firstAndLast)
+    ->first->toBe('John')
+    ->last->toBe('Smith')
+    ->and(fn () => $this->firstOnly)
+    ->first->toBe('John')
+    ->last->toBeNull();
 
-    /** @test */
-    public function it_trims_additional_spacing_when_creating_full_name(): void
-    {
-        $name = Name::from('    Randall   James    Wilk');
+it('gets the full name')
+    ->expect(fn () => $this->firstAndLast)
+    ->full->toBe('John Smith')
+    ->and(fn () => (string) $this->firstAndLast)->toBe('John Smith')
+    ->and(fn () => $this->firstOnly)
+    ->full->toBe('John')
+    ->and(fn () => (string) $this->firstOnly)->toBe('John');
 
-        self::assertSame('Randall', $name->first);
-        self::assertSame('James Wilk', $name->last);
-    }
+it('gets the familiar name')
+    ->expect(fn () => $this->firstAndLast)->familiar->toBe('John S.')
+    ->and(fn () => $this->firstOnly)->familiar->toBe('John');
 
-    /** @test */
-    public function it_gets_first_and_last(): void
-    {
-        self::assertSame('Randall', $this->firstAndLast->first);
-        self::assertSame('Wilk', $this->firstAndLast->last);
+it('gets the abbreviated name')
+    ->expect(fn () => $this->firstAndLast)->abbreviated->toBe('J. Smith')
+    ->and(fn () => $this->firstOnly)->abbreviated->toBe('John');
 
-        self::assertSame('Randall', $this->firstOnly->first);
-        self::assertNull($this->firstOnly->last);
-    }
+it('sorts the name')
+    ->expect(fn () => $this->firstAndLast)->sorted->toBe('Smith, John')
+    ->and(fn () => $this->firstOnly)->sorted->toBe('John');
 
-    /** @test */
-    public function it_gets_the_full_name(): void
-    {
-        self::assertSame('Randall Wilk', $this->firstAndLast->full);
-        self::assertSame('Randall Wilk', (string) $this->firstAndLast);
+it('gets the full name possessive version')
+    ->expect(fn () => $this->firstAndLast)->full_possessive->toBe('John Smith\'s')
+    ->and(fn () => $this->firstOnly)->full_possessive->toBe('John\'s')
+    ->and(new Name('Foo', 'Bars'))->full_possessive->toBe('Foo Bars\'');
 
-        self::assertSame('Randall', $this->firstOnly->full);
-        self::assertSame('Randall', (string) $this->firstOnly);
-    }
+it('gets the first name possessive version')
+    ->expect(fn () => $this->firstAndLast)->first_possessive->toBe('John\'s');
 
-    /** @test */
-    public function it_gets_the_familiar_name(): void
-    {
-        self::assertSame('Randall W.', $this->firstAndLast->familiar);
+it('gets the last name possessive version')
+    ->expect(fn () => $this->firstAndLast)->last_possessive->toBe('Smith\'s');
 
-        self::assertSame('Randall', $this->firstOnly->familiar);
-    }
+it('gets the sorted name possessive version')
+    ->expect(fn () => $this->firstAndLast)->sorted_possessive->toBe('Smith, John\'s');
 
-    /** @test */
-    public function it_gets_the_abbreviated_name(): void
-    {
-        self::assertSame('R. Wilk', $this->firstAndLast->abbreviated);
+it('gets the abbreviated name possessive version')
+    ->expect(fn () => $this->firstAndLast)->abbreviated_possessive->toBe('J. Smith\'s');
 
-        self::assertSame('Randall', $this->firstOnly->abbreviated);
-    }
+it('gets initials')
+    ->expect(Name::from('John Adam Smith'))->initials->toBe('JAS');
 
-    /** @test */
-    public function it_sorts_the_name(): void
-    {
-        self::assertSame('Wilk, Randall', $this->firstAndLast->sorted);
+it('gets initials possessive version')
+    ->expect(fn () => $this->firstAndLast)->initials_possessive->toBe('JS\'s');
 
-        self::assertSame('Randall', $this->firstOnly->sorted);
-    }
+it('gets initials with spaces')
+    ->expect(Name::from('     John    Adam  Smith'))->initials->toBe('JAS');
 
-    /** @test */
-    public function it_gets_the_full_name_possessive_version(): void
-    {
-        self::assertSame("Randall Wilk's", $this->firstAndLast->full_possessive);
-        self::assertSame("Randall's", $this->firstOnly->full_possessive);
-        self::assertSame("Foo Bars'", (new Name('Foo', 'Bars'))->full_possessive);
-    }
+it('gets initials with first name only')
+    ->expect(Name::from('John'))->initials->toBe('J');
 
-    /** @test */
-    public function it_gets_the_first_name_possessive_version(): void
-    {
-        self::assertSame("Randall's", $this->firstAndLast->first_possessive);
-    }
+it('gets initials without parenthesis')
+    ->expect(Name::from('John Adam Smith (Developer)'))->initials->toBe('JAS');
 
-    /** @test */
-    public function it_gets_the_last_name_possessive_version(): void
-    {
-        self::assertSame("Wilk's", $this->firstAndLast->last_possessive);
-    }
-
-    /** @test */
-    public function it_gets_the_sorted_name_possessive_version(): void
-    {
-        self::assertSame("Wilk, Randall's", $this->firstAndLast->sorted_possessive);
-    }
-
-    /** @test */
-    public function it_gets_the_abbreviated_name_possessive_version(): void
-    {
-        self::assertSame("R. Wilk's", $this->firstAndLast->abbreviated_possessive);
-    }
-
-    /** @test */
-    public function it_gets_initials(): void
-    {
-        $name = Name::from('Randall James Wilk');
-
-        self::assertSame('RJW', $name->initials);
-    }
-
-    /** @test */
-    public function it_gets_the_initials_possessive_version(): void
-    {
-        self::assertSame("RW's", $this->firstAndLast->initials_possessive);
-    }
-
-    /** @test */
-    public function it_gets_initials_with_spaces(): void
-    {
-        $name = Name::from('    Randall    James  Wilk');
-
-        self::assertSame('RJW', $name->initials);
-    }
-
-    /** @test */
-    public function it_gets_initials_with_first_name_only(): void
-    {
-        $name = Name::from('Randall');
-
-        self::assertSame('R', $name->initials);
-    }
-
-    /** @test */
-    public function it_gets_initials_without_parenthesis(): void
-    {
-        $name = Name::from('Randall James Wilk (Developer)');
-
-        self::assertSame('RJW', $name->initials);
-    }
-
-    /** @test */
-    public function it_gets_initials_without_special_characters(): void
-    {
-        $name = Name::from('Randall James Wilk !');
-
-        self::assertSame('RJW', $name->initials);
-    }
-}
+it('gets initials without special characters')
+    ->expect(Name::from('John Adam Smith!'))->initials->toBe('JAS');

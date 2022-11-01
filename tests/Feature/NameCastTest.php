@@ -2,43 +2,31 @@
 
 declare(strict_types=1);
 
-namespace Rawilk\LaravelCasters\Tests\Feature;
-
 use Rawilk\LaravelCasters\Support\Name;
 use Rawilk\LaravelCasters\Tests\Models\Model;
-use Rawilk\LaravelCasters\Tests\TestCase;
 
-final class NameCastTest extends TestCase
-{
-    /** @test */
-    public function it_casts_to_a_name(): void
-    {
-        $model = new Model(['name' => 'Randall Wilk']);
+it('casts to a name', function () {
+    $model = new Model(['name' => 'John Smith']);
 
-        self::assertInstanceOf(Name::class, $model->name);
-        self::assertSame('Randall', $model->name->first);
-        self::assertSame('Wilk', $model->name->last);
-        self::assertSame('Randall Wilk', $model->name->full);
-        self::assertSame('Randall Wilk', (string) $model->name);
-    }
+    expect($model->name)->toBeInstanceOf(Name::class)
+        ->and($model->name->first)->toBe('John')
+        ->and($model->name->last)->toBe('Smith')
+        ->and($model->name->full)->toBe('John Smith')
+        ->and((string) $model->name)->toBe('John Smith');
+});
 
-    /** @test */
-    public function can_be_casted_from_first_and_last_name_on_a_model(): void
-    {
-        $model = new Model(['first_name' => 'Randall', 'last_name' => 'Wilk']);
+it('can be casted from first and last name on a model', function () {
+    $model = new Model(['first_name' => 'John', 'last_name' => 'Smith']);
 
-        self::assertSame('Randall Wilk', $model->name->full);
-        self::assertSame('Randall', $model->name->first);
-        self::assertSame('RW', $model->name->initials);
-    }
+    expect($model->name->full)->toBe('John Smith')
+        ->and($model->name->first)->toBe('John')
+        ->and($model->name->initials)->toBe('JS');
+});
 
-    /** @test */
-    public function different_first_and_last_name_attributes_can_be_used(): void
-    {
-        $model = new Model(['given_name' => 'Randall', 'family_name' => 'Wilk']);
+test('different first and last name attributes can be used', function () {
+    $model = new Model(['given_name' => 'John', 'family_name' => 'Smith']);
 
-        self::assertSame('Randall Wilk', $model->custom_name->full);
-        self::assertSame('Randall', $model->custom_name->first);
-        self::assertSame('Wilk', $model->custom_name->last);
-    }
-}
+    expect($model->custom_name->full)->toBe('John Smith')
+        ->and($model->custom_name->first)->toBe('John')
+        ->and($model->custom_name->last)->toBe('Smith');
+});
