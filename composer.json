@@ -6,7 +6,7 @@
         "laravel-casters",
         "custom casts",
         "password cast",
-        "encryption cast"
+        "name cast"
     ],
     "homepage": "https://github.com/rawilk/laravel-casters",
     "license": "MIT",
