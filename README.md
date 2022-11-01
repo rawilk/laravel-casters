@@ -19,7 +19,7 @@ protected $casts = [
 
     // Encrypts on write, decrypts and typecasts to integer on read.
     'secret_number' => Encrypted::class . ':integer',
-    
+
     // Provides utilities for manipulating a name
     'name' => Name::class,
 ];
@@ -39,7 +39,7 @@ For documentation, please refer to: https://randallwilk.dev/docs/laravel-casters
 
 ## Testing
 
-``` bash
+```bash
 composer test
 ```
 
@@ -57,15 +57,15 @@ Please review [my security policy](.github/SECURITY.md) on how to report securit
 
 ## Credits
 
-- [Randall Wilk](https://github.com/rawilk)
-- [All Contributors](../../contributors)
+-   [Randall Wilk](https://github.com/rawilk)
+-   [All Contributors](../../contributors)
 
 ## Alternatives
 
 Some alternatives to this package include:
 
-- [crudly/encrypted](https://github.com/Crudly/Encrypted)
-- [watson/nameable](https://github.com/dwightwatson/nameable)
+-   [crudly/encrypted](https://github.com/Crudly/Encrypted)
+-   [watson/nameable](https://github.com/dwightwatson/nameable)
 
 ## License
 
