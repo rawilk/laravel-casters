@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Concerns\HasAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
+/** @internal */
 class Caster
 {
     use HasAttributes;
