@@ -7,7 +7,7 @@ namespace Rawilk\LaravelCasters\Support;
 use Illuminate\Support\Str as BaseStr;
 
 /** @internal */
-class Str extends BaseStr
+final class Str extends BaseStr
 {
     public static function firstLetter(string $value): string
     {

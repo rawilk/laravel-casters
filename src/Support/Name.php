@@ -28,10 +28,6 @@ use Rawilk\LaravelCasters\Casts\NameCast;
  */
 class Name implements JsonSerializable, Jsonable, Castable
 {
-    protected ?string $firstName;
-
-    protected ?string $lastName;
-
     public static function from(?string $name): self
     {
         $parts = explode(' ', trim($name), 2);
@@ -43,10 +39,8 @@ class Name implements JsonSerializable, Jsonable, Castable
         return new static(Arr::get($parts, 0), $lastName);
     }
 
-    public function __construct(?string $firstName, ?string $lastName = null)
+    public function __construct(protected ?string $firstName, protected ?string $lastName = null)
     {
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
     }
 
     public function first(): ?string
