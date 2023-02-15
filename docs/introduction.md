@@ -5,7 +5,7 @@ sort: 1
 
 ## Introduction
 
-`laravel-casters` is a collection of custom class casts for Laravel Eloquent Models. This package allows you to quickly
+Casts for Laravel is a collection of custom class casts for Laravel Eloquent Models. This package allows you to quickly
 and easily add casts for encrypting attributes and hashing passwords on your user models.
 
 ```php
@@ -30,3 +30,7 @@ Some alternatives to this package include:
 
 -   [crudly/encrypted](https://github.com/Crudly/Encrypted)
 -   [watson/nameable](https://github.com/dwightwatson/nameable)
+
+## Disclaimer
+
+This package is not affiliated with, maintained, authorized, endorsed or sponsored by Laravel or any of its affiliates.
