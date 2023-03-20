@@ -32,12 +32,12 @@ protected $casts = [
 You can install the package via composer:
 
 ```bash
-composer require rawilk/laravel-casters
+composer require rawilk/laravel-casters:2.0
 ```
 
 ## Documentation
 
-For documentation, please refer to: https://randallwilk.dev/docs/laravel-casters
+For documentation, please refer to: https://randallwilk.dev/docs/laravel-casters/v2
 
 ## Testing
 
