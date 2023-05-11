@@ -7,6 +7,9 @@ namespace Rawilk\LaravelCasters\Casts;
 use Illuminate\Contracts\Database\Eloquent\CastsInboundAttributes;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @deprecated Use Laravel's hash cast instead. Will be removed in v4
+ */
 class Password implements CastsInboundAttributes
 {
     public function set($model, string $key, $value, array $attributes)
