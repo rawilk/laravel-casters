@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-casters` will be documented in this file
 
+## v3.0.2 - 2023-05-11
+
+### What's Changed
+
+- Bump creyD/prettier_action from 4.2 to 4.3 by @dependabot in https://github.com/rawilk/laravel-casters/pull/8
+- Bump actions/checkout from 2 to 3 by @dependabot in https://github.com/rawilk/laravel-casters/pull/9
+- Bump aglipanci/laravel-pint-action from 2.1.0 to 2.2.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/10
+- Bump dependabot/fetch-metadata from 1.3.6 to 1.4.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/11
+- Deprecated the `Password` cast in favor of the `hash` cast added to Laravel in v10.10.0
+
+**Full Changelog**: https://github.com/rawilk/laravel-casters/compare/v3.0.1...v3.0.2
+
 ## v3.0.1 - 2023-02-15
 
 ### What's Changed
