@@ -14,6 +14,7 @@ and easily add casts for names and hashing passwords on your user models.
 ```php
 protected $casts = [
     // Hashes the value when assigning to `$model->password`.
+    // Note: Password cast is now deprecated. Use Laravel's hash cast instead.
     'password' => Password::class,
 
     // Provides utilities for manipulating a name
