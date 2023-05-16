@@ -18,7 +18,9 @@ class NameCast implements CastsAttributes
 
     public function get($model, string $key, $value, array $attributes): Name
     {
-        if ($value) {
+        // We're probably dealing with a single column instead of a combination
+        // of two columns.
+        if (Arr::has($attributes, $key)) {
             return Name::from($value);
         }
 
@@ -28,8 +30,17 @@ class NameCast implements CastsAttributes
         return Name::from("{$firstName} {$lastName}");
     }
 
-    public function set($model, string $key, $value, array $attributes): string
+    public function set($model, string $key, $value, array $attributes): array
     {
-        return (string) $value;
+        // We're probably dealing with a single column instead of a combination
+        // of two columns.
+        if (! $value instanceof Name) {
+            return [$key => $value];
+        }
+
+        return [
+            $this->firstName => $value->first,
+            $this->lastName => $value->last,
+        ];
     }
 }
