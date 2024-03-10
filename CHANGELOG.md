@@ -2,6 +2,22 @@
 
 All notable changes to `laravel-casters` will be documented in this file
 
+## v3.0.4 - 2024-03-10
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 1.4.0 to 1.5.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/13
+* Bump dependabot/fetch-metadata from 1.5.0 to 1.5.1 by @dependabot in https://github.com/rawilk/laravel-casters/pull/14
+* Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/16
+* Bump aglipanci/laravel-pint-action from 2.2.0 to 2.3.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/15
+* Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/rawilk/laravel-casters/pull/17
+* Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/rawilk/laravel-casters/pull/18
+* Add Laravel 11.x support by @rawilk in https://github.com/rawilk/laravel-casters/pull/19
+* Add php 8.3 support by @rawilk in https://github.com/rawilk/laravel-casters/pull/20
+* Chore: update pint config by @rawilk in https://github.com/rawilk/laravel-casters/pull/21
+
+**Full Changelog**: https://github.com/rawilk/laravel-casters/compare/v3.0.3...v3.0.4
+
 ## v3.0.3 - 2023-05-16
 
 ### What's Changed
