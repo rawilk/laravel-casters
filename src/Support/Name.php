@@ -26,7 +26,7 @@ use Rawilk\LaravelCasters\Casts\NameCast;
  * @property-read string|null $abbreviated_possessive
  * @property-read string|null $initials_possessive
  */
-class Name implements JsonSerializable, Jsonable, Castable
+class Name implements Castable, Jsonable, JsonSerializable
 {
     public static function from(?string $name): self
     {
