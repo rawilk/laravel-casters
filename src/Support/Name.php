@@ -28,6 +28,30 @@ use Rawilk\LaravelCasters\Casts\NameCast;
  */
 class Name implements Castable, Jsonable, JsonSerializable
 {
+    public function __construct(protected ?string $firstName, protected ?string $lastName = null)
+    {
+    }
+
+    public function __get(string $key): ?string
+    {
+        if ($this->wantsPossessive($key)) {
+            $key = Str::replaceLast('possessive', '', $key);
+
+            return $this->possessive($this->{$key});
+        }
+
+        if (method_exists($this, $method = Str::studly($key))) {
+            return $this->{$method}();
+        }
+
+        return null;
+    }
+
+    public function __toString(): string
+    {
+        return (string) $this->full();
+    }
+
     public static function from(?string $name): self
     {
         $parts = explode(' ', trim($name), 2);
@@ -39,8 +63,9 @@ class Name implements Castable, Jsonable, JsonSerializable
         return new static(Arr::get($parts, 0), $lastName);
     }
 
-    public function __construct(protected ?string $firstName, protected ?string $lastName = null)
+    public static function castUsing(array $arguments): CastsAttributes
     {
+        return new NameCast(...$arguments);
     }
 
     public function first(): ?string
@@ -95,41 +120,6 @@ class Name implements Castable, Jsonable, JsonSerializable
             ->join('');
     }
 
-    protected function possessive(string $name): string
-    {
-        return sprintf("%s'%s", $name, (Str::endsWith($name, 's') ? null : 's'));
-    }
-
-    protected function wantsPossessive(string $key): bool
-    {
-        return Str::endsWith($key, 'possessive');
-    }
-
-    public function __get(string $key): ?string
-    {
-        if ($this->wantsPossessive($key)) {
-            $key = Str::replaceLast('possessive', '', $key);
-
-            return $this->possessive($this->{$key});
-        }
-
-        if (method_exists($this, $method = Str::studly($key))) {
-            return $this->{$method}();
-        }
-
-        return null;
-    }
-
-    public function __toString(): string
-    {
-        return (string) $this->full();
-    }
-
-    public static function castUsing(array $arguments): CastsAttributes
-    {
-        return new NameCast(...$arguments);
-    }
-
     public function toJson($options = 0): string
     {
         return json_encode($this->jsonSerialize(), $options);
@@ -138,5 +128,15 @@ class Name implements Castable, Jsonable, JsonSerializable
     public function jsonSerialize(): string
     {
         return (string) $this->full();
+    }
+
+    protected function possessive(string $name): string
+    {
+        return sprintf("%s'%s", $name, (Str::endsWith($name, 's') ? null : 's'));
+    }
+
+    protected function wantsPossessive(string $key): bool
+    {
+        return Str::endsWith($key, 'possessive');
     }
 }
