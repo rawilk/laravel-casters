@@ -28,9 +28,7 @@ use Rawilk\LaravelCasters\Casts\NameCast;
  */
 class Name implements Castable, Jsonable, JsonSerializable
 {
-    public function __construct(protected ?string $firstName, protected ?string $lastName = null)
-    {
-    }
+    public function __construct(protected ?string $firstName, protected ?string $lastName = null) {}
 
     public function __get(string $key): ?string
     {
