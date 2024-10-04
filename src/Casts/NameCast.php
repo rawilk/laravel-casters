@@ -6,6 +6,7 @@ namespace Rawilk\LaravelCasters\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Arr;
+use Rawilk\LaravelCasters\Contracts\HasSingleNameColumn;
 use Rawilk\LaravelCasters\Support\Name;
 
 class NameCast implements CastsAttributes
@@ -36,6 +37,10 @@ class NameCast implements CastsAttributes
         // of two columns.
         if (! $value instanceof Name) {
             return [$key => $value];
+        }
+
+        if ($model instanceof HasSingleNameColumn) {
+            return [$key => $value->full];
         }
 
         return [
