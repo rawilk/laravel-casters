@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-casters` will be documented in this file
 
+## v3.1.0 - 2024-10-04
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.0 to 2.3.1 by @dependabot in https://github.com/rawilk/laravel-casters/pull/22
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/23
+* Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/rawilk/laravel-casters/pull/24
+* Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/25
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/26
+* Add `HasSingleNameColumn` contract to help models with a single name column in the db serialize their name correctly - 3034500726867d615f403d6f5a5f7001543e2cf9
+
+**Full Changelog**: https://github.com/rawilk/laravel-casters/compare/v3.0.4...v3.1.0
+
 ## v3.0.4 - 2024-03-10
 
 ### What's Changed
