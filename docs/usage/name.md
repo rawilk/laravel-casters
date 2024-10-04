@@ -156,3 +156,20 @@ $name = Name::from('Randall James Wilk');
 echo $name->full; // Randall James Wilk
 echo $name->initials; // RJW
 ```
+
+## Edge Cases
+
+In some instances you may have issues using the cast on models with a single name column in the database. To help the cast serialize the model's name correctly for storage, you may implement the `HasSingleNameColumn` contract on your model, like this:
+
+```php
+<?php
+
+namespace App\Models;
+
+use Rawilk\LaravelCasters\Contracts\HasSingleNameColumn;
+
+class User extends Model implements HasSingleNameColumn
+{
+    // ...
+}
+```
