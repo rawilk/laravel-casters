@@ -6,10 +6,10 @@ All notable changes to `laravel-casters` will be documented in this file
 
 ### What's Changed
 
-* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/27
-* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/rawilk/laravel-casters/pull/28
-* Add Laravel 12.x support by @rawilk in https://github.com/rawilk/laravel-casters/pull/29
-* Add php 8.4 support by @rawilk in https://github.com/rawilk/laravel-casters/pull/30
+- Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/27
+- Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/rawilk/laravel-casters/pull/28
+- Add Laravel 12.x support by @rawilk in https://github.com/rawilk/laravel-casters/pull/29
+- Add php 8.4 support by @rawilk in https://github.com/rawilk/laravel-casters/pull/30
 
 **Full Changelog**: https://github.com/rawilk/laravel-casters/compare/v3.1.0...v3.1.1
 
