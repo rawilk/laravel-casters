@@ -17,12 +17,12 @@ All notable changes to `laravel-casters` will be documented in this file
 
 ### What's Changed
 
-* Bump aglipanci/laravel-pint-action from 2.3.0 to 2.3.1 by @dependabot in https://github.com/rawilk/laravel-casters/pull/22
-* Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/23
-* Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/rawilk/laravel-casters/pull/24
-* Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/25
-* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/26
-* Add `HasSingleNameColumn` contract to help models with a single name column in the db serialize their name correctly - 3034500726867d615f403d6f5a5f7001543e2cf9
+- Bump aglipanci/laravel-pint-action from 2.3.0 to 2.3.1 by @dependabot in https://github.com/rawilk/laravel-casters/pull/22
+- Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/23
+- Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/rawilk/laravel-casters/pull/24
+- Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/25
+- Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/26
+- Add `HasSingleNameColumn` contract to help models with a single name column in the db serialize their name correctly - 3034500726867d615f403d6f5a5f7001543e2cf9
 
 **Full Changelog**: https://github.com/rawilk/laravel-casters/compare/v3.0.4...v3.1.0
 
@@ -30,15 +30,15 @@ All notable changes to `laravel-casters` will be documented in this file
 
 ### What's Changed
 
-* Bump dependabot/fetch-metadata from 1.4.0 to 1.5.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/13
-* Bump dependabot/fetch-metadata from 1.5.0 to 1.5.1 by @dependabot in https://github.com/rawilk/laravel-casters/pull/14
-* Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/16
-* Bump aglipanci/laravel-pint-action from 2.2.0 to 2.3.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/15
-* Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/rawilk/laravel-casters/pull/17
-* Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/rawilk/laravel-casters/pull/18
-* Add Laravel 11.x support by @rawilk in https://github.com/rawilk/laravel-casters/pull/19
-* Add php 8.3 support by @rawilk in https://github.com/rawilk/laravel-casters/pull/20
-* Chore: update pint config by @rawilk in https://github.com/rawilk/laravel-casters/pull/21
+- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/13
+- Bump dependabot/fetch-metadata from 1.5.0 to 1.5.1 by @dependabot in https://github.com/rawilk/laravel-casters/pull/14
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/16
+- Bump aglipanci/laravel-pint-action from 2.2.0 to 2.3.0 by @dependabot in https://github.com/rawilk/laravel-casters/pull/15
+- Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/rawilk/laravel-casters/pull/17
+- Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/rawilk/laravel-casters/pull/18
+- Add Laravel 11.x support by @rawilk in https://github.com/rawilk/laravel-casters/pull/19
+- Add php 8.3 support by @rawilk in https://github.com/rawilk/laravel-casters/pull/20
+- Chore: update pint config by @rawilk in https://github.com/rawilk/laravel-casters/pull/21
 
 **Full Changelog**: https://github.com/rawilk/laravel-casters/compare/v3.0.3...v3.0.4
 
@@ -100,7 +100,7 @@ All notable changes to `laravel-casters` will be documented in this file
 
 ### Updated
 
-- Add Laravel 9.* support
+- Add Laravel 9.\* support
 - Add PHP 8.1 support
 
 ### Fixed

@@ -5,8 +5,8 @@ sort: 2
 
 ## General Requirements
 
--   PHP **8.1** or greater
--   Laravel **9.0** or greater
+- PHP **8.1** or greater
+- Laravel **9.0** or greater
 
 ## Version Matrix
 

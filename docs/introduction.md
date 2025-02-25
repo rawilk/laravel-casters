@@ -22,8 +22,8 @@ protected $casts = [
 
 Some alternatives to this package include:
 
--   [crudly/encrypted](https://github.com/Crudly/Encrypted)
--   [watson/nameable](https://github.com/dwightwatson/nameable)
+- [crudly/encrypted](https://github.com/Crudly/Encrypted)
+- [watson/nameable](https://github.com/dwightwatson/nameable)
 
 ## Disclaimer
 
