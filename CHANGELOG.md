@@ -6,11 +6,11 @@ All notable changes to `laravel-casters` will be documented in this file
 
 ### What's Changed
 
-* Add Laravel 13.x support
-* Add PHP 8.5 support
-* Drop PHP 8.1 support
-* Drop Laravel 9.x and 10.x support
-* Drop `Password` cast
+- Add Laravel 13.x support
+- Add PHP 8.5 support
+- Drop PHP 8.1 support
+- Drop Laravel 9.x and 10.x support
+- Drop `Password` cast
 
 **Full Changelog**: https://github.com/rawilk/laravel-casters/compare/v3.1.1...v4.0.0
 
@@ -112,7 +112,7 @@ All notable changes to `laravel-casters` will be documented in this file
 
 ### Updated
 
-- Add Laravel 9.* support
+- Add Laravel 9.\* support
 - Add PHP 8.1 support
 
 ### Fixed
