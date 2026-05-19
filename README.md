@@ -8,8 +8,7 @@
 
 ![Social image](https://banners.beyondco.de/Casts%20for%20Laravel.png?theme=light&packageManager=composer+require&packageName=rawilk%2Flaravel-casters&pattern=architect&style=style_1&description=A+collection+of+custom+casts+for+Laravel.&md=1&showWatermark=0&fontSize=100px&images=check)
 
-Casts for Laravel is a collection of custom class casts for Laravel Eloquent Models. This package allows you to quickly
-and easily add casts for names and hashing passwords on your user models.
+Casts for Laravel is a collection of custom class casts for Laravel Eloquent Models.
 
 ```php
 protected $casts = [
