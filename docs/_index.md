@@ -1,5 +1,5 @@
 ---
-title: v3
+title: v4
 slogan: A collection of custom casts for Laravel
 githubUrl: https://github.com/rawilk/laravel-casters
 branch: main
